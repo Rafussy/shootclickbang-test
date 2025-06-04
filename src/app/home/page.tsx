@@ -16,7 +16,7 @@ export default function HomePage() {
                         </div>
 
                         <nav className="hidden md:flex space-x-8">
-                            <a href="#features" className="text-white hover:text-purple-200 transition-colors font-custom">Features</a>
+                            <a href="/features" className="text-white hover:text-purple-200 transition-colors font-custom">Features</a>
                             <a href="#creators" className="text-white hover:text-purple-200 transition-colors font-custom">For Creators</a>
                             <a href="#community" className="text-white hover:text-purple-200 transition-colors font-custom">Community</a>
                             <a href="#pricing" className="text-white hover:text-purple-200 transition-colors font-custom">Pricing</a>

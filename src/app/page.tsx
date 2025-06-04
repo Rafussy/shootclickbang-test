@@ -22,8 +22,9 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-end space-x-12" >
               <nav className="hidden md:flex items-right space-x-8">
-                <a href="#" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                <a href="#features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Feature</a>
+                <a href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+                <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About Us</a>
+                <a href="/features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Features</a>
                 <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</a>
                 <a href="#blog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Blog</a>
               </nav>
