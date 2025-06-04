@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Font Checker</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .font-test {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+
+        .font-name {
+            font-weight: bold;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .sample-text {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .available {
+            border-left: 4px solid #4CAF50;
+            background: #f1f8e9;
+        }
+
+        .not-available {
+            border-left: 4px solid #f44336;
+            background: #ffebee;
+        }
+
+        .status {
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .available .status {
+            color: #4CAF50;
+        }
+
+        .not-available .status {
+            color: #f44336;
+        }
+
+        .instructions {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h2 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 Local Font Checker</h1>
+
+        <div class="instructions">
+            <h2>How to Use Your Local Fonts</h2>
+            <p>This page checks which fonts are available on your system. Green means the font is installed and
+                available to use.</p>
+            <p><strong>To use a font in your app:</strong></p>
+            <ol>
+                <li>Find a font below that shows as "Available"</li>
+                <li>Use the Tailwind class like <code>font-inter</code> or <code>font-poppins</code></li>
+                <li>Or update your CSS to prioritize that specific font</li>
+            </ol>
+        </div>
+
+        <div id="font-tests"></div>
+    </div>
+
+    <script>
+        const fontsToTest = [
+            'FK Screamer',
+            'FK Screamer Legacy',
+            'FK Screamer Condensed',
+            'FK Screamer Extended',
+            'Inter',
+            'Poppins',
+            'Nunito',
+            'Montserrat',
+            'Roboto',
+            'Open Sans',
+            'Lato',
+            'Source Sans Pro',
+            'Helvetica Neue',
+            'Helvetica',
+            'Arial',
+            'Segoe UI',
+            'San Francisco',
+            'Avenir',
+            'Proxima Nova',
+            'Gotham',
+            'Futura',
+            'Georgia',
+            'Times New Roman',
+            'Trebuchet MS',
+            'Verdana',
+            'Tahoma',
+            'Comic Sans MS',
+            'Impact',
+            'Courier New',
+            'Monaco',
+            'Consolas',
+            'Fira Code',
+            'Source Code Pro'
+        ];
+
+        function isFontAvailable(fontName) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set a baseline font
+            ctx.font = '72px monospace';
+            const baselineWidth = ctx.measureText('mmmmmmmmmmlli').width;
+
+            // Test the target font
+            ctx.font = `72px ${fontName}, monospace`;
+            const testWidth = ctx.measureText('mmmmmmmmmmlli').width;
+
+            // If widths differ, the font is available
+            return testWidth !== baselineWidth;
+        }
+
+        function createFontTest(fontName) {
+            const isAvailable = isFontAvailable(fontName);
+            const sampleText = "The quick brown fox jumps over the lazy dog 123";
+
+            return `
+                <div class="font-test ${isAvailable ? 'available' : 'not-available'}">
+                    <div class="font-name">${fontName}</div>
+                    <div class="sample-text" style="font-family: '${fontName}', system-ui, sans-serif;">
+                        ${sampleText}
+                    </div>
+                    <div class="status">
+                        ${isAvailable ? '✅ Available' : '❌ Not Available'}
+                    </div>
+                    ${isAvailable ? `<div style="font-size: 12px; color: #666; margin-top: 5px;">Use: <code>font-${fontName.toLowerCase().replace(/\s+/g, '-')}</code></div>` : ''}
+                </div>
+            `;
+        }
+
+        // Generate font tests
+        document.getElementById('font-tests').innerHTML = fontsToTest
+            .map(createFontTest)
+            .join('');
+
+        // Add summary
+        const availableFonts = fontsToTest.filter(isFontAvailable);
+        const summary = document.createElement('div');
+        summary.style.cssText = 'background: #e8f5e8; padding: 15px; border-radius: 5px; margin-top: 20px; text-align: center;';
+        summary.innerHTML = `<strong>Summary:</strong> ${availableFonts.length} out of ${fontsToTest.length} fonts are available on your system.`;
+        document.querySelector('.container').appendChild(summary);
+    </script>
+</body>
+
+</html>

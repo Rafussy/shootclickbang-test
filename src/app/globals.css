@@ -1,26 +1,329 @@
 @import "tailwindcss";
 
+/* Custom Font Faces - Using Local System Fonts First */
+@font-face {
+  font-family: 'CustomFont';
+  src: local('FK Screamer Legacy'),
+    local('FK-Screamer-Legacy'),
+    local('FKScreamerLegacy'),
+    local('FK Screamer'),
+    local('FK-Screamer'),
+    local('FKScreamer'),
+    local('Inter'),
+    local('Inter-Regular'),
+    local('Poppins'),
+    local('Poppins-Regular'),
+    local('Nunito'),
+    local('Nunito-Regular'),
+    local('Montserrat'),
+    local('Montserrat-Regular'),
+    url('/fonts/custom-font.woff2') format('woff2'),
+    url('/fonts/custom-font.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CustomFont';
+  src: local('FK Screamer Legacy Bold'),
+    local('FK-Screamer-Legacy-Bold'),
+    local('FKScreamerLegacy-Bold'),
+    local('FK Screamer Bold'),
+    local('FK-Screamer-Bold'),
+    local('FKScreamer-Bold'),
+    local('Inter Bold'),
+    local('Inter-Bold'),
+    local('Poppins Bold'),
+    local('Poppins-Bold'),
+    local('Nunito Bold'),
+    local('Nunito-Bold'),
+    local('Montserrat Bold'),
+    local('Montserrat-Bold'),
+    url('/fonts/custom-font-bold.woff2') format('woff2'),
+    url('/fonts/custom-font-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Regular */
+@font-face {
+  font-family: 'FK Screamer';
+  src: local('FK Screamer'),
+    local('FK-Screamer'),
+    local('FKScreamer'),
+    url('/fonts/fk-screamer.woff2') format('woff2'),
+    url('/fonts/fk-screamer.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Bold */
+@font-face {
+  font-family: 'FK Screamer';
+  src: local('FK Screamer Bold'),
+    local('FK-Screamer-Bold'),
+    local('FKScreamer-Bold'),
+    url('/fonts/fk-screamer-bold.woff2') format('woff2'),
+    url('/fonts/fk-screamer-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Light */
+@font-face {
+  font-family: 'FK Screamer';
+  src: local('FK Screamer Light'),
+    local('FK-Screamer-Light'),
+    local('FKScreamer-Light'),
+    url('/fonts/fk-screamer-light.woff2') format('woff2'),
+    url('/fonts/fk-screamer-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Italic */
+@font-face {
+  font-family: 'FK Screamer';
+  src: local('FK Screamer Italic'),
+    local('FK-Screamer-Italic'),
+    local('FKScreamer-Italic'),
+    url('/fonts/fk-screamer-italic.woff2') format('woff2'),
+    url('/fonts/fk-screamer-italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* FK Screamer Legacy Regular */
+@font-face {
+  font-family: 'FK Screamer Legacy';
+  src: local('FK Screamer Legacy'),
+    local('FK-Screamer-Legacy'),
+    local('FKScreamerLegacy'),
+    url('/fonts/fk-screamer-legacy.woff2') format('woff2'),
+    url('/fonts/fk-screamer-legacy.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Legacy Bold */
+@font-face {
+  font-family: 'FK Screamer Legacy';
+  src: local('FK Screamer Legacy Bold'),
+    local('FK-Screamer-Legacy-Bold'),
+    local('FKScreamerLegacy-Bold'),
+    url('/fonts/fk-screamer-legacy-bold.woff2') format('woff2'),
+    url('/fonts/fk-screamer-legacy-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Condensed */
+@font-face {
+  font-family: 'FK Screamer Condensed';
+  src: local('FK Screamer Condensed'),
+    local('FK-Screamer-Condensed'),
+    local('FKScreamer-Condensed'),
+    url('/fonts/fk-screamer-condensed.woff2') format('woff2'),
+    url('/fonts/fk-screamer-condensed.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Condensed Bold */
+@font-face {
+  font-family: 'FK Screamer Condensed';
+  src: local('FK Screamer Condensed Bold'),
+    local('FK-Screamer-Condensed-Bold'),
+    local('FKScreamer-Condensed-Bold'),
+    url('/fonts/fk-screamer-condensed-bold.woff2') format('woff2'),
+    url('/fonts/fk-screamer-condensed-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Extended */
+@font-face {
+  font-family: 'FK Screamer Extended';
+  src: local('FK Screamer Extended'),
+    local('FK-Screamer-Extended'),
+    local('FKScreamer-Extended'),
+    url('/fonts/fk-screamer-extended.woff2') format('woff2'),
+    url('/fonts/fk-screamer-extended.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FK Screamer Extended Bold */
+@font-face {
+  font-family: 'FK Screamer Extended';
+  src: local('FK Screamer Extended Bold'),
+    local('FK-Screamer-Extended-Bold'),
+    local('FKScreamer-Extended-Bold'),
+    url('/fonts/fk-screamer-extended-bold.woff2') format('woff2'),
+    url('/fonts/fk-screamer-extended-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gilroy Font Faces */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Regular.woff2') format('woff2'),
+    url('/fonts/Gilroy-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Medium.woff2') format('woff2'),
+    url('/fonts/Gilroy-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Bold.woff2') format('woff2'),
+    url('/fonts/Gilroy-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Abominable Font Faces */
+@font-face {
+  font-family: 'Abominable';
+  src: url('/fonts/Abominable-Regular.woff2') format('woff2'),
+    url('/fonts/Abominable-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Abominable';
+  src: url('/fonts/Abominable-Bold.woff2') format('woff2'),
+    url('/fonts/Abominable-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Alternative: Direct system font usage without @font-face */
+.font-system-fk-screamer {
+  font-family: 'FK Screamer', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-system-fk-screamer-legacy {
+  font-family: 'FK Screamer Legacy', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-system-fk-screamer-condensed {
+  font-family: 'FK Screamer Condensed', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-system-fk-screamer-extended {
+  font-family: 'FK Screamer Extended', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-system-inter {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-system-poppins {
+  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-system-nunito {
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.font-system-montserrat {
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0F172A;
+  --primary: #3EAEE4;
+  --secondary: #F14E38;
+  --tertiary: #FF9F1C;
+  --blue-camera: #3EAEE4;
+  --orange-accent: #FF9F1C;
+  --pink-accent: #FF6B9D;
+  --yellow-accent: #FDE047;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-custom: 'CustomFont', 'FK Screamer Legacy', 'FK Screamer', 'Inter', 'Poppins', 'Nunito', 'Montserrat', system-ui, sans-serif;
+  --font-fk-screamer: 'FK Screamer', system-ui, sans-serif;
+  --font-fk-screamer-legacy: 'FK Screamer Legacy', system-ui, sans-serif;
+  --font-fk-screamer-condensed: 'FK Screamer Condensed', system-ui, sans-serif;
+  --font-fk-screamer-extended: 'FK Screamer Extended', system-ui, sans-serif;
+  --font-gilroy: 'Gilroy', system-ui, sans-serif;
+  --font-abominable: 'Abominable', system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0F172A;
     --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-custom);
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom float animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
 }
