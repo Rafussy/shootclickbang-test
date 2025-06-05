@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Camera, Scan, Share2, Images, ArrowRight, Star, Users, Download, CheckCircle, QrCode, Smartphone, Heart, Shield } from "lucide-react";
 
 export default function Home() {
@@ -22,11 +23,11 @@ export default function Home() {
             </div>
             <div className="flex items-center justify-end space-x-12" >
               <nav className="hidden md:flex items-right space-x-8">
-                <a href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About Us</a>
-                <a href="/features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Features</a>
-                <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</a>
-                <a href="#blog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Blog</a>
+                <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</Link>
+                <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About Us</Link>
+                <Link href="/features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Features</Link>
+                <Link href="/pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</Link>
+                <Link href="/blog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Blog</Link>
               </nav>
               <div className="flex items-center">
                 <button className="bg-red-500 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-red-600 transition-all duration-300 transform hover:scale-105">
