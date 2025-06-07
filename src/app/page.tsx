@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white overflow-hidden">
       {/* Header */}
-      <header className="bg-primary border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+      <header className=" bg-primary border-b border-gray-100 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -21,12 +21,12 @@ export default function Home() {
               />
             </div>
             <div className="flex items-center justify-end space-x-12" >
-              <nav className="hidden md:flex items-right space-x-8">
-                <a href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About Us</a>
-                <a href="/features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Features</a>
-                <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</a>
-                <a href="#blog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Blog</a>
+              <nav className="flex items-right space-x-8">
+                <a href="/" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-white hover:border-blue-600 active:border-white focus:border-white">Home</a>
+                <a href="/about" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">About Us</a>
+                <a href="/features" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Features</a>
+                <a href="#pricing" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Pricing</a>
+                <a href="#blog" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Blog</a>
               </nav>
               <div className="flex items-center">
                 <button className="bg-red-500 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-red-600 transition-all duration-300 transform hover:scale-105">
@@ -39,18 +39,16 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32 bg-white">
+      <section className="relative overflow-hidden pb-[200px] md:pb-[100px] py-20 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-65 items-center">
+          <div className="flex flex-row gap-6 items-center justify-center">
             {/* Left Content */}
-            <div className="flex w-[655px] flex-col justify-center items-end gap-[42px]">
-              {/* Bold Heading */}
+            <div className="flex md:w-[655px] w-full flex-col justify-center items-center md:items-end gap-[42px]">
               <div className="space-y-4 gap-8">
-
                 <div className="h-[200px] w-full relative">
                   <div className="absolute top-0 right-0 w-[2010px] h-[200px]">
                     <Image
-                      src="/assets/Group 25.svg"
+                      src="/assets/onescaninstantmemories.svg"
                       alt="One Scan Instant Memories"
                       fill
                       className="h-full z-10 absolute top-0 right-0 object-fill"
@@ -58,25 +56,22 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col justify-center items-end gap-4">
-                  <div className="flex flex-row gap-2">
-                    {/* Supporting Text */}
-                    <div className="inline-block">
-                      <p className="text-black font-semibold text-base leading-7 tracking-[-0.08px] font-inter">
-                        Affordable, easy-to-use UGC for events, festivals and more.
-                      </p>
-                    </div>
+                <div className="flex flex-col justify-center md:items-end items-center gap-4 w-full">
+                  <div className="flex justify-center items-center flex-row gap-2 w-full text-center">
+                    <p className="text-black font-semibold text-base text-center leading-7 tracking-[-0.08px] font-inter">
+                      Affordable, easy-to-use UGC for events, festivals and more.
+                    </p>
                   </div>
 
                   {/* Buttons */}
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-4 flex-col md:flex-row w-full md:w-auto">
                     <button
-                      className="flex px-6 py-2 justify-center items-center gap-2.5 rounded-xl bg-[#F14E38] hover:bg-[#E03E28] text-white font-semibold transition-all duration-300 transform hover:scale-105"
+                      className="flex px-6 py-2 justify-center items-center w-full md:w-auto gap-2.5 rounded-xl bg-[#F14E38] hover:bg-[#E03E28] text-white font-semibold transition-all duration-300 transform hover:scale-105"
                     >
                       Start your free trial →
                     </button>
                     <button
-                      className="flex px-6 py-2 justify-center items-center gap-2.5 rounded-xl bg-[#36A2DB] text-white font-semibold hover:bg-[#2E9ED4] transition-all duration-300 transform hover:scale-105"
+                      className="flex px-6 py-2 justify-center w-full md:w-auto items-center gap-2.5 rounded-xl bg-[#36A2DB] text-white font-semibold hover:bg-[#2E9ED4] transition-all duration-300 transform hover:scale-105"
                     >
                       Watch Demo Reel
                     </button>
@@ -84,51 +79,54 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="w-[396px] h-[73.4177px] flex flex-col gap-3 items-end">
+              <div className="w-[396px] h-[73.4177px] flex flex-col gap-3 items-center md:items-end">
                 <div className="text-black font-inter text-base font-semibold leading-7 tracking-[-0.08px]">
                   They&apos;ve captured the fun!
                 </div>
-                <div className="flex w-[396px] justify-end items-center gap-[20.051px]">
-                  <Image
-                    src="/assets/logos_slack.svg"
-                    alt="Slack Logo"
-                    width={93.476}
-                    height={33.418}
-                    className="w-[93.476px] h-[33.418px] flex-shrink-0"
-                    style={{ aspectRatio: '93.48/33.42' }}
-                  />
-                  <Image
-                    src="/assets/airbnb.svg"
-                    alt="Airbnb Logo"
-                    width={93.476}
-                    height={33.418}
-                    className="w-[93.476px] h-[33.418px] flex-shrink-0"
-                    style={{ aspectRatio: '93.48/33.42' }}
-                  />
-                  <Image
-                    src="/assets/twitter.svg"
-                    alt="X (Twitter) Logo"
-                    width={93.476}
-                    height={33.418}
-                    className="w-[93.476px] h-[33.418px] flex-shrink-0"
-                    style={{ aspectRatio: '93.48/33.42' }}
-                  />
-                  <Image
-                    src="/assets/stripe.svg"
-                    alt="Stripe Logo"
-                    width={93.476}
-                    height={33.418}
-                    className="w-[93.476px] h-[33.418px] flex-shrink-0"
-                  />
+                <div className="flex w-[396px] justify-center items-center gap-[20.051px] flex-col sm:flex-row">
+
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-0 sm:gap-12 space-y-4 sm:space-y-0">
+                    <Image
+                      src="/assets/logos_slack.svg"
+                      alt="Slack Logo"
+                      width={93.476}
+                      height={33.418}
+                      className="w-[93.476px] h-[33.418px] flex-shrink-0"
+                      style={{ aspectRatio: '93.48/33.42' }}
+                    />
+                    <Image
+                      src="/assets/airbnb.svg"
+                      alt="Airbnb Logo"
+                      width={93.476}
+                      height={33.418}
+                      className="w-[93.476px] h-[33.418px] flex-shrink-0"
+                      style={{ aspectRatio: '93.48/33.42' }}
+                    /></div>
+                  <div className="flex flex-col sm:flex-row  justify-center items-center gap-0 sm:gap-12 space-y-4 sm:space-y-0">
+                    <Image
+                      src="/assets/twitter.svg"
+                      alt="X (Twitter) Logo"
+                      width={93.476}
+                      height={33.418}
+                      className="w-[93.476px] h-[33.418px] flex-shrink-0"
+                      style={{ aspectRatio: '93.48/33.42' }}
+                    />
+                    <Image
+                      src="/assets/stripe.svg"
+                      alt="Stripe Logo"
+                      width={93.476}
+                      height={33.418}
+                      className="w-[93.476px] h-[33.418px] flex-shrink-0"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-
             {/* Right Content - 3D Polaroid Camera */}
-            <div className="relative flex w-[600px] flex-col items-center">
-              <div className="relative">
+            <div className="relative hidden md:flex flex w-[600px] items-center ">
+              <div className="relative top-0 right-0 left-0">
                 <Image
-                  src="/assets/Group 22.svg"
+                  src="/assets/polaroid.svg"
                   alt="3D Polaroid Camera with Phone Selfie"
                   width={600}
                   height={500}
@@ -143,25 +141,25 @@ export default function Home() {
 
       <section className="w-[1440px] mx-auto h-[720px] p-[60px] justify-center items-center gap-[60px] self-stretch relative">
         <div className="absolute w-full top-0 -translate-x-1/2 left-1/2 h-[400px] z-0 flex justify-center items-center ">
-          <div className=" absolute top-5 z-10 w-[3781.928px] h-[68.751px] bg-gradient-to-b from-[#FF9F1C] to-[#FF9F1C] rotate-[4.677deg]"/>
+          <div className=" absolute top-5 z-10 w-[3781.928px] h-[68.751px] bg-gradient-to-b from-[#FF9F1C] to-[#FF9F1C] rotate-[4.677deg]" />
         </div>
-        <div className="w-[700.851px] absolute h-[410.492px] top-0 right-70 z-10 flex flex-row gap-[-100px]">
+        <div className="w-[700.851px] lg:hidden md:hidden sm:hidden absolute h-[410.492px] top-0 right-70 z-10 flex flex-row gap-[-100px]">
           <Image
-            src="/assets/Group 28.svg"
+            src="/assets/bluepolaroidphoto.svg"
             alt="picture"
             width={247.443}
             height={366.078}
             className="w-[247.443px] h-[366.078px] rotate-[7.655deg] flex-shrink-0 aspect-[247.44/366.08]"
           />
           <Image
-            src="/assets/Group 30.svg"
+            src="/assets/greenpolaroidphoto.svg"
             alt="picture"
             width={247.443}
             height={366.078}
             className="w-[247.443px] h-[366.078px] -rotate-[1deg] flex-shrink-0 aspect-[247.44/366.08]"
           />
           <Image
-            src="/assets/Group 29.svg"
+            src="/assets/pinkpolaroidphoto.svg"
             alt="picture"
             width={247.443}
             height={366.078}
@@ -171,7 +169,7 @@ export default function Home() {
         <div className="flex w-[1200.4546px] h-[600px] gap-[55px] relative">
           <div className="rounded-3xl bg-[#E9F1F4] w-[572.727px] flex flex-col items-center z-0">
             <Image
-              src="/assets/Frame 59.svg"
+              src="/assets/grouphoto.svg"
               alt="picture"
               width={572.727}
               height={572.727}
@@ -185,7 +183,7 @@ export default function Home() {
               </h1>
               <h2 className="self-stretch text-[#464646] font-inter text-xl font-medium leading-7 tracking-[-0.1px]">
                 Replace expensive photographers and disposable cameras with a modern, digital solution. Guests capture photos and videos via a QR code, and everything is collected in a beautiful event gallery.
-              </h2>              
+              </h2>
             </div>
           </div>
         </div>
@@ -202,7 +200,7 @@ export default function Home() {
           <h1 className="text-white font-['Abominable Regular'] text-[44px] font-extrabold leading-normal tracking-[-3px] z-10">
             HOW WE MADE THIS A REALITY
           </h1>
-          <button 
+          <button
             className="flex w-[151px] h-[48px] px-6 py-3 justify-center items-center gap-[10px] rounded-[99px] bg-white hover:bg-[#F5F5F5] z-10 transition-all duration-300 transform hover:scale-105"
           >
             <p className="text-slate-900 text-center font-inter text-base text-nowrap font-semibold leading-none">
@@ -216,7 +214,7 @@ export default function Home() {
       <div className="flex w-[1440px] mx-auto py-[100px] px-[120px] justify-end items-center gap-[100px] self-stretch">
         <div className="flex w-[1200px] h-[656px] items-center gap-[100px] flex-1 self-stretch">
           <Image
-            src="/assets/image 6.svg"
+            src="/assets/mangraphics.svg"
             alt="picture"
             width={438}
             height={656}
@@ -225,7 +223,7 @@ export default function Home() {
           <div className="flex items-center gap-6 flex-1 self-stretch">
             <div className="flex flex-col items-start gap-10 flex-1 flex-shrink-0">
               <h1 className="self-stretch font-stretch-extra-expanded text-[#FF9F1C] font-['FK Screamer Legacy Trial'] text-[40px] font-extrabold leading-[60px] tracking-[-2px] leading-trim-both text-edge-cap uppercase">
-              Simple and secure event setup, step by step
+                Simple and secure event setup, step by step
               </h1>
               <div className="flex flex-col items-start gap-7 self-stretch">
                 <div className="flex items-start gap-3 self-stretch">
@@ -234,10 +232,10 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col justify-center items-start gap-1 flex-1">
                     <p className="text-[#2D2D2D] font-inter text-2xl font-bold leading-[28px] tracking-[-0.12px]">
-                    1. Set Up Your Event
+                      1. Set Up Your Event
                     </p>
                     <p className="self-stretch text-[#2D2D2D] font-inter text-base font-medium leading-[28px] tracking-[-0.08px]">
-                    Create your account, add event details, and customize privacy settings.
+                      Create your account, add event details, and customize privacy settings.
                     </p>
                   </div>
                 </div>
@@ -247,10 +245,10 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col justify-center items-start gap-1 flex-1">
                     <p className="text-[#2D2D2D] font-inter text-2xl font-bold leading-[28px] tracking-[-0.12px]">
-                    2. Share with Guests
+                      2. Share with Guests
                     </p>
                     <p className="self-stretch text-[#2D2D2D] font-inter text-base font-medium leading-[28px] tracking-[-0.08px]">
-                    Generate a QR code and easily send or display it.
+                      Generate a QR code and easily send or display it.
                     </p>
                   </div>
                 </div>
@@ -260,22 +258,22 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col justify-center items-start gap-1 flex-1 flex-shrink-0">
                     <p className="text-[#2D2D2D] font-inter text-2xl font-bold leading-[28px] tracking-[-0.12px]">
-                    3. Collect & Manage Photos
+                      3. Collect & Manage Photos
                     </p>
                     <p className="self-stretch text-[#2D2D2D] font-inter text-base font-medium leading-[28px] tracking-[-0.08px]">
-                    Guests upload photos to your gallery — ready to view, manage, and share!
+                      Guests upload photos to your gallery — ready to view, manage, and share!
                     </p>
                   </div>
                 </div>
               </div>
               <div className="flex justify-center items-center gap-10  mt-[40px]">
-                <button 
+                <button
                   className="group flex font-inter justify-center items-center gap-2.5 px-6 py-4 rounded-xl hover:bg-[#E68C09] bg-[#FF9F1C] text-white transition-all duration-300 transform hover:scale-105 "
                 >
                   Start Sharing Memories →
                 </button>
                 <h1 className="text-black font-inter text-xl px-6 py-4 rounded-xl font-medium leading-6 hover:bg-slate-200 transition-all duration-300 transform hover:scale-105">
-                How it works
+                  How it works
                 </h1>
               </div>
             </div>
@@ -284,60 +282,60 @@ export default function Home() {
       </div>
 
       <section className="flex  w-[1440px] mx-auto py-[100px] px-[120px] justify-end items-center gap-[100px] self-stretch">
-        <div className="flex items-center gap-[100px] flex-1 self-stretch">
+        <div className="flex md:flex-col lg:flex-col flex-row items-center gap-[100px] flex-1 self-stretch">
           <div className="flex items-center gap-[100px] flex-1 self-stretch">
             <div className="flex flex-col items-start gap-10 flex-1">
               <h1 className="self-stretch text-[#F14E38] font-['FK Screamer Legacy Trial'] text-[40px] font-extrabold leading-[60px] tracking-[-3px] leading-trim-both text-edge-cap uppercase">
-              FOR GUESTS, Simple and fun photo sharing
+                FOR GUESTS, Simple and fun photo sharing
               </h1>
               <div className="flex flex-col items-start gap-10 self-stretch">
                 <div className="flex flex-col items-start gap-7 self-stretch">
                   <div className="flex items-start gap-1 self-stretch">
                     <div className="flex h-[28px] items-center gap-[10px]">
-                    <div className="w-[10px] h-[10px] flex-shrink-0 bg-[#32C9E4] rotate-45 aspect-square"></div>
+                      <div className="w-[10px] h-[10px] flex-shrink-0 bg-[#32C9E4] rotate-45 aspect-square"></div>
                     </div>
                     <div className="flex flex-col justify-center items-start gap-1 flex-1">
                       <p className="text-[#2D2D2D] font-inter text-2xl font-bold leading-[28px] tracking-[-0.12px]">
-                      1. Scan the QR Code
+                        1. Scan the QR Code
                       </p>
                       <p className="self-stretch text-[#2D2D2D] font-inter text-base font-medium leading-[28px] tracking-[-0.08px]">
-                      Use smartphone&apos;s camera app to quickly scan the event QR code.
+                        Use smartphone&apos;s camera app to quickly scan the event QR code.
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1 self-stretch">
                     <div className="flex h-[28px] items-center gap-[10px]">
-                    <div className="w-[10px] h-[10px] flex-shrink-0 bg-[#FF9F1C] rotate-45 aspect-square"></div>
+                      <div className="w-[10px] h-[10px] flex-shrink-0 bg-[#FF9F1C] rotate-45 aspect-square"></div>
                     </div>
                     <div className="flex flex-col justify-center items-start gap-1 flex-1">
                       <p className="text-[#2D2D2D] font-inter text-2xl font-bold leading-[28px] tracking-[-0.12px]">
-                      2. Capture Special Moments
+                        2. Capture Special Moments
                       </p>
                       <p className="self-stretch text-[#2D2D2D] font-inter text-base font-medium leading-[28px] tracking-[-0.08px]">
-                      Snap photos and record videos — no app downloads needed!
+                        Snap photos and record videos — no app downloads needed!
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1 self-stretch">
                     <div className="flex h-[28px] items-center gap-[10px]">
-                    <div className="w-[10px] h-[10px] flex-shrink-0 bg-[#F14E38] rotate-45 aspect-square"></div>
+                      <div className="w-[10px] h-[10px] flex-shrink-0 bg-[#F14E38] rotate-45 aspect-square"></div>
                     </div>
                     <div className="flex flex-col justify-center items-start gap-1 flex-1">
                       <p className="text-[#2D2D2D] font-inter text-2xl font-bold leading-[28px] tracking-[-0.12px]">
-                      3. View the Gallery
+                        3. View the Gallery
                       </p>
                       <p className="self-stretch text-[#2D2D2D] font-inter text-base font-medium leading-[28px] tracking-[-0.08px]">
-                      Want to see what everyone&apos;s sharing? Check out the live event gallery!
+                        Want to see what everyone&apos;s sharing? Check out the live event gallery!
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-10">
                   <button className="flex px-6 py-4 justify-center text-white font-inter text-xl font-medium leading-6 items-center gap-2.5 rounded-xl bg-[#F14E38] hover:bg-[#E03E28] transition-all duration-300 transform hover:scale-105">
-                      Start Sharing Memories →  
+                    Start Sharing Memories →
                   </button>
                   <p className="text-black font-inter text-xl font-medium leading-6 px-6 py-4 rounded-xl hover:bg-slate-200 transition-all duration-300 transform hover:scale-105">
-                  See the fun stuff
+                    See the fun stuff
                   </p>
                 </div>
               </div>
@@ -345,7 +343,7 @@ export default function Home() {
           </div>
           <div className="w-[414px] h-[621px] aspect-[2/3] rounded-[24px] bg-[url('/assets/image 6.svg')] bg-lightgray bg-center bg-cover bg-no-repeat">
             <Image
-              src="/assets/image 7.svg"
+              src="/assets/groupphotographics.svg"
               alt="picture"
               width={414}
               height={621}
@@ -354,13 +352,13 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <section className="flex w-[1440px] mx-auto flex-col items-center gap-10 self-stretch py-10 pb-[297px]">
         <h1 className="self-stretch text-[#1D9FE6] pb-10 text-center font-['FK Screamer Bold'] text-[54px] font-extrabold leading-[70px] tracking-[-1px] font-bold uppercase leading-none">
-        UGCSHARE NOW!
+          UGCSHARE NOW!
         </h1>
         <Image
-          src="/assets/Group 345.svg"
+          src="/assets/bigpolaroidcam.svg"
           alt="picture"
           width={814}
           height={712}
@@ -381,7 +379,7 @@ export default function Home() {
               <button className="flex w-[151px] h-[48px] text-[#0F172A] font-inter text-base font-medium leading-6 px-6 py-3 justify-center hover:bg-gray-300 transition-all duration-300 transform hover:scale-105 items-center gap-[10px] rounded-[99px] bg-white z-10">
                 Get Started
               </button>
-            </div>   
+            </div>
           </div>
         </div>
       </section>
@@ -392,23 +390,23 @@ export default function Home() {
           <div className="flex w-[1200px] justify-between items-start">
             <div className="flex flex-col items-start gap-1 relative z-10">
               <Image
-                src="/assets/snapclickbanglogo.svg" 
-                alt="logo" 
+                src="/assets/snapclickbanglogo.svg"
+                alt="logo"
                 width={242.1657}
                 height={23.015}
                 className="flex h-[35.015px] p-[3px] flex-col items-start gap-[10px] z-10"
               />
               <h1 className="text-[#0A142F] font-inter text-2xl font-normal leading-9">
-              5123 Market St. #22B 
-              Charlottesville, California 44635
+                5123 Market St. #22B
+                Charlottesville, California 44635
               </h1>
               <ul className="flex flex-col items-start gap-2 text-[#0A142F] font-inter text-base font-normal leading-[22px] underline">
-              contact@lift.snapclickbang.com
+                contact@lift.snapclickbang.com
               </ul>
               <h1 className="text-[#0A142F] font-inter text-base font-normal leading-[22px]">
-              (434) 546-4356
+                (434) 546-4356
               </h1>
-            </div>  
+            </div>
             <div className="flex items-start gap-1">
               <div className="flex flex-col items-start gap-2">
                 <p className="w-[159.777px] text-[#0A142F] font-inter text-base font-normal leading-5">About</p>

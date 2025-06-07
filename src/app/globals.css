@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Custom Font Faces - Using Local System Fonts First */
 @font-face {
@@ -287,6 +290,11 @@
   --font-fk-screamer-extended: 'FK Screamer Extended', system-ui, sans-serif;
   --font-gilroy: 'Gilroy', system-ui, sans-serif;
   --font-abominable: 'Abominable', system-ui, sans-serif;
+  --breakpoint-*: initial;
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1440px;
+  --breakpoint-xl: 3440px;
 }
 
 @media (prefers-color-scheme: dark) {

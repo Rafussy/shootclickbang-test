@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import BreakpointTracker from "@/components/BreakpointTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -89,7 +90,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${customFont.variable} ${gilroy.variable} ${abominable.variable} antialiased font-gilroy`}
+        suppressHydrationWarning={true}
       >
+        <BreakpointTracker />
         {children}
       </body>
     </html>
