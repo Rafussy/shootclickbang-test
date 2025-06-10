@@ -28,7 +28,7 @@ export default function Test() {
     }
 
     return (
-        <div className='absolute w-full top-0 left-0  z-[99999] flex justify-center items-center px-2'>
+        <div className='absolute w-full flex top-0 left-0  z-[99999] flex justify-center items-center px-2'>
             <div className="h-[20px] mt-0.5 border border-l  border-black/40" />
             <div className="w-full border-b  border-black/40 h-[4px]" />
             <div className='bg-black px-1 py-1 relative flex flex-row'>
