@@ -12,7 +12,7 @@ export default function FeaturesPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Image
-                src="/assets/Layer_5.svg"
+                src="/assets/snapclickbanglogo.svg"
                 alt="SNAPCLICKBANG Logo"
                 width={180}
                 height={24}
