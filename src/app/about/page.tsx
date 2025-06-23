@@ -1,37 +1,103 @@
 "use client";
 
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { Camera, Scan, Share2, Images, ArrowRight, Star, Users, Download, CheckCircle, QrCode, Smartphone, Heart, Shield } from "lucide-react";
+import { useState } from "react";
 
 export default function AboutPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-primary border-b border-gray-100 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-16 sm:h-10 md:h-16">
             <div className="flex items-center">
               <Image
                 src="/assets/snapclickbanglogo.svg"
                 alt="SNAPCLICKBANG Logo"
                 width={180}
                 height={24}
-                className="h-6 w-auto"
+                className="h-6 w-auto sm:w-[150px] md:w-auto"
                 priority
               />
             </div>
-            <div className="flex items-center justify-end space-x-12" >
-              <nav className="hidden md:flex items-right space-x-8">
-                <a href="/" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
-                <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">About Us</a>
-                <a href="/features" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Features</a>
-                <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Pricing</a>
-                <a href="#blog" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Blog</a>
+            <div className="flex items-center justify-end">
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex items-center space-x-8 mr-12">
+                <a href="/" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Home</a>
+                <a href="/about" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-white hover:border-blue-600 active:border-white focus:border-white">About Us</a>
+                <a href="/features" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Features</a>
+                <a href="#pricing" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Pricing</a>
+                <a href="#blog" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Blog</a>
               </nav>
-              <div className="flex items-center">
-                <button className="bg-red-500 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-red-600 transition-all duration-300 transform hover:scale-105">
+
+              {/* CTA Button */}
+              <div className="flex items-center space-x-3">
+                <button className="bg-red-500 text-white flex-shrink-0 sm:px-2 sm:py-2 md:px-6 md:py-2.5 rounded-full sm:text-xs md:text-base font-semibold hover:bg-red-600 transition-all duration-300 transform hover:scale-105">
                   Snap Now
                 </button>
+
+                {/* Mobile Menu Button */}
+                <button
+                  onClick={toggleMenu}
+                  className="md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-white rounded-lg hover:bg-white/10 focus:outline-nonehost
+                   focus:ring-white/20"
+                  aria-controls="mobile-menu"
+                  aria-expanded={isMenuOpen}
+                >
+                  <span className="sr-only">Open main menu</span>
+                  {isMenuOpen ? (
+                    <X className="w-5 h-5" />
+                  ) : (
+                    <Menu className="w-5 h-5" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Navigation Menu */}
+            <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden absolute top-10 left-0 right-0 bg-primary shadow-lg`} id="mobile-menu">
+              <div className="px-4 py-4 space-y-1">
+                <a
+                  href="/"
+                  className="block px-3 py-2 text-white hover:bg-white/10 rounded-md font-medium transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </a>
+                <a
+                  href="/about"
+                  className="block px-3 py-2 text-white hover:bg-white/10 rounded-md font-medium transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About Us
+                </a>
+                <a
+                  href="/features"
+                  className="block px-3 py-2 text-white hover:bg-white/10 rounded-md font-medium transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Features
+                </a>
+                <a
+                  href="#pricing"
+                  className="block px-3 py-2 text-white hover:bg-white/10 rounded-md font-medium transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Pricing
+                </a>
+                <a
+                  href="#blog"
+                  className="block px-3 py-2 text-white hover:bg-white/10 rounded-md font-medium transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Blog
+                </a>
               </div>
             </div>
           </div>
@@ -39,130 +105,302 @@ export default function AboutPage() {
       </header>
 
       {/* About Us Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 font-custom">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Us</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Learn more about our mission, our team, and why we built SnapShack to revolutionize event photography and memory sharing.
-            </p>
-          </div>
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
-              <p className="text-lg text-gray-600">
-                Our mission is to make capturing and sharing memories at events effortless, fun, and accessible for everyone. We believe every moment matters, and everyone should be able to relive their favorite experiences with ease.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Team</h2>
-              <p className="text-lg text-gray-600">
-                We are a passionate group of creators, technologists, and event enthusiasts dedicated to building the best platform for user-generated content at events. Our diverse backgrounds help us understand the needs of both organizers and guests.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Why SnapShack?</h2>
-              <p className="text-lg text-gray-600">
-                We saw a need for a modern, digital solution to replace expensive photographers and disposable cameras. SnapShack empowers everyone at your event to become a memory maker, ensuring no moment is missed.
-              </p>
-            </div>
-          </div>
+      <section className="flex flex-col items-center justify-center px-6 py-16 md:px-12 md:py-20 lg:px-24 lg:py-24 xl:px-28 xl:py-28">
+        <div className="max-w-4xl mx-auto text-center space-y-12 md:space-y-16">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#F14E38]" 
+              style={{ fontFamily: 'Abominable, sans-serif' }}>
+            ABOUT US
+          </h1>
+          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-600 leading-relaxed">
+            We believe the best moments at any event aren't staged-they're spontaneous. That's why we built a tool that helps brands, organizers, and communities capture those real, unfiltered memories with zero fuss. No fancy equipment. No expensive photographers. Just one scan, and you are instantly part of the story.
+          </p>
+        </div>
+      </section>
+       
+      {/* Our Mission Section */}
+      <section className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-20 px-6 py-16 md:px-12 md:py-20 lg:px-24 lg:py-24 xl:px-28 xl:py-28">
+        <div className="max-w-4xl mx-auto text-center space-y-12 md:space-y-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#3696D2]"
+              style={{ fontFamily: 'Abominable, sans-serif' }}>
+            OUR MISSION
+          </h2>
+          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-600 leading-relaxed">
+            Our mission is to make capturing and sharing memories at events effortless, fun, and accessible for everyone. We believe every moment matters, and everyone should be able to relive their favorite experiences with ease.
+          </p>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Ready to Create Amazing Memories?
+      {/* Our Team Section */}
+      <section className="flex flex-col items-center justify-center px-6 py-16 md:px-12 md:py-20 lg:px-24 lg:py-24 xl:px-28 xl:py-28">
+        <div className="max-w-4xl mx-auto text-center space-y-10 md:space-y-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#FF9F1C]"
+              style={{ fontFamily: 'Abominable, sans-serif' }}>
+            OUR TEAM
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-            Join thousands of event organizers who are already using SnapShack to capture and share unforgettable moments.
+          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-600 leading-relaxed">
+            We are a passionate group of creators, technologists, and event enthusiasts dedicated to building the best platform for user-generated content at events. Our diverse backgrounds help us understand the needs of both organizers and guests.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Get Started Free
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
-              Schedule Demo
-            </button>
+        </div>
+      </section>
+
+            {/* Why SnapClickBang Section */}
+      <section className="flex flex-col items-center justify-center px-6 py-16 md:px-12 md:py-20 lg:px-24 lg:py-24 xl:px-28 xl:py-28">
+        <div className="max-w-4xl mx-auto text-center space-y-12 md:space-y-16">
+          <div className="flex max-w-4xl mx-auto text-center justify-center">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-black font-[Abominable,sans-serif]">WHY</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#F14E38] font-[Abominable,sans-serif]">SNAP</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#3696D2] font-[Abominable,sans-serif]">CLICK</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#FF9F1C] font-[Abominable,sans-serif]">BANG?</h2>
+          </div>
+          <p className="flex max-w-4xl mx-auto text-center text-lg sm:text-center md:text-xl lg:text-2xl xl:text-3xl font-medium text-gray-600 leading-relaxed">
+            We saw a need for a modern, digital solution to replace expensive photographers and disposable cameras, SnapClickBang empowers everyone at your event to become a memory maker, ensuring no moment is missed.
+          </p>
+        </div>
+      </section>
+      
+      {/* Testimonials Section */}
+      <section className="px-6 py-16 md:px-12 md:py-20 lg:px-24 lg:py-24 xl:px-28 xl:py-28">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-black text-[#3696D2] mb-8 md:mb-12 lg:mb-16"
+              style={{ fontFamily: 'Abominable, sans-serif' }}>
+            WHAT OUR CUSTOMERS SAY
+          </h2>
+        </div>
+
+          {/* Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Lorem culpa lorem. Deserim et adipisci, laboriosam dut officia. Dolores adipice totam et."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Leslie Alexander</p>
+                  <p className="text-gray-500 text-xs">@leslieaadner</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Integer id nunc sit semper purus. Bibendum at lacus ut arcu blandit montes mauris. Amet mauris nihil elit venenatis blandit vel et proin. Non hendrerit in vel et diam."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Brenna Goyette</p>
+                  <p className="text-gray-500 text-xs">@brennagoyette</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Molestiae incunt elit Et lore natus est nihism deserunt explicabo nihil. Quo corporis voluptas ea quist."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Leonard Krasner</p>
+                  <p className="text-gray-500 text-xs">@leonardkrasner</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 4 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Quis dectatur est. Atque quo aliquot sit officiis maiores quat. Dictem molestu quod aliquos. At sint dicta cum fugit laborium omnis qui exceptatur sit."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">SaryCat</p>
+                  <p className="text-gray-500 text-xs">@sarygatt</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 5 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Aut reprehederit voluptatem sequi aspernatur et eum faut ut quam. excepturim laborem volutas cumique dolore et in. quam pellentesque doloram aliquid, ut aliquam inventore et accusantium posam conseque."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Michael Foster</p>
+                  <p className="text-gray-500 text-xs">@mikeitsfoster</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 6 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Consectetur et est, Thique molestiae et venim cum fugit laborium aspernatur. Vel sunt dicta explicabo iste eum quas."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Dries Vincent</p>
+                  <p className="text-gray-500 text-xs">@driesvincent</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 7 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Aut reprehederit sequi aspernatur inventore et est aliquam diam. Vel quas dicta consectetur aliquid excepturi voluptas et aspernatur. Vel laudo laborium elit."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Lindsay Walton</p>
+                  <p className="text-gray-500 text-xs">@lindsaywalton</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 8 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Temporibus to molestias impedit adipisci portamque ab aliquet Nostrum explicitus delet et."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Tom Cook</p>
+                  <p className="text-gray-500 text-xs">@tomcook</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 9 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Molestiae incum dicta odisser Quam pellentesque nohil aliqual, ut aliquam inventore et aspernatur."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Floyd Miles</p>
+                  <p className="text-gray-500 text-xs">@floydmiles</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 10 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Molestia et et Atque qua aliquet sit officiis poussit aspentatur sequi aspernatur sunt laborium aspernatur. Vel sunt dicta explicabo incidunt est. Quid curnm explicitus delet et."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Courtney Henry</p>
+                  <p className="text-gray-500 text-xs">@courtneyhenry</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 11 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Aliqad rerum reprehenderit adipisci adipest. Cumque qui exceptari non sunt. Quid dicta conp omque Aiti."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Emily Selman</p>
+                  <p className="text-gray-500 text-xs">@emilyselman</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 12 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6">
+                "Aliqad aucus reprehenderit adipict. Cumque atriqu qui exceptari non sunt. quul dicta saepe composi."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">Whitney Francis</p>
+                  <p className="text-gray-500 text-xs">@whitneyfrancis</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-1">
-              <div className="flex items-center space-x-3 mb-6">
+      <footer className="flex relative mx-auto w-full max-w-[1440px] z-10 py-6 md:py-10 px-4 md:px-8 lg:px-[10px] justify-center items-center gap-[10px] self-stretch bg-white">
+        <div className="flex w-full max-w-[1200px] flex-col items-start gap-4 md:gap-6">
+          <div className="flex w-full flex-col lg:flex-row justify-between lg:items-start gap-6 lg:gap-0">
+            <div className="flex flex-col items-start gap-1 relative z-10 sm:items-center sm:justify-center sm:w-full md:items-center md:justify-center md:w-full lg:items-start lg:justify-start lg:w-auto">
+              <Image
+                src="/assets/snapclickbanglogo.svg"
+                alt="logo"
+                width={242.1657}
+                height={23.015}
+                className="flex h-[25px] md:h-[30px] lg:h-[35px] p-[3px] flex-col items-start gap-[10px] z-10"
+              />
+              <h1 className="text-[#0A142F] font-inter text-sm md:text-lg lg:text-2xl font-normal leading-6 md:leading-8 lg:leading-9 mt-2 sm:text-center md:text-center lg:text-start">
+                5123 Market St. #22B<br />
+                Charlottesville, California 44635
+              </h1>
+              <ul className="flex flex-col items-start gap-2 text-[#0A142F] font-inter text-sm md:text-base font-normal leading-[22px] underline mt-2">
+                contact@lift.snapclickbang.com
+              </ul>
+              <h1 className="text-[#0A142F] font-inter text-sm md:text-base font-normal leading-[22px]">
+                (434) 546-4356
+              </h1>
+            </div>
+            <div className="flex flex-col md:flex-col lg:flex-row items-start gap-4 md:gap-1 sm:items-center sm:justify-center sm:w-full md:items-center md:justify-center md:w-full lg:items-start lg:justify-start lg:w-auto">
+              <div className="flex flex-col items-start gap-2 sm:items-center sm:justify-center sm:w-full md:items-center md:justify-center md:w-full lg:items-start lg:justify-start lg:w-auto">
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">About</p>
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Growers</p>
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Merchant</p>
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Partners</p>
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Contact</p>
+              </div>
+              <div className="flex flex-col items-start gap-2 sm:items-center sm:justify-center sm:w-full md:items-center md:justify-center md:w-full lg:items-start lg:justify-start lg:w-auto">
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Facebook</p>
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Twitter</p>
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Linkedin</p>
+                <p className="w-auto md:w-[159.777px] text-[#0A142F] font-inter text-sm md:text-base font-normal leading-5 md:text-center lg:text-start">Instagram</p>
+              </div>
+              <div className="w-[40px] md:w-[50px] h-[40px] md:h-[50px] transition-all duration-300 transform hover:scale-105 overflow-hidden sm:hidden md:hidden lg:flex rounded-full">
                 <Image
-                  src="/assets/Logo.svg.svg"
-                  alt="SnapShack Logo"
-                  width={40}
-                  height={40}
-                  className="w-10 h-10"
+                  src="/assets/Up arrow.svg"
+                  alt="picture"
+                  width={50}
+                  height={50}
+                  className="w-full h-full"
                 />
-                <span className="text-2xl font-bold">SnapShack</span>
               </div>
-              <p className="text-gray-400 mb-6">
-                Revolutionizing event photography with QR-based instant sharing. Capture every moment, share every memory.
-              </p>
-              <div className="text-sm text-gray-400">
-                <p>1234 Innovation Drive</p>
-                <p>San Francisco, CA 94102</p>
-                <p>contact@snapshack.com</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Product</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">How it Works</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Press</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Support</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">© 2024 SnapShack. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
-                </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 2.567-1.646 0-2.625-2.245-4.869-5.487-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.017 0z" />
-                </svg>
-              </a>
+          <div className="flex flex-col md:flex-col lg:flex-row justify-between items-center sm:items-center sm:justify-center sm:w-full md:items-center md:justify-center md:w-full md:gap-5 lg:items-start lg:justify-between lg:w-full lg:w-auto gap-4">
+            <p className="text-black font-inter text-sm md:text-base font-bold leading-5 opacity-65 sm:text-center md:text-center lg:text-start">
+              © 2025 SnapClickBang. All rights reserved.
+            </p>
+            <div className="flex flex-col md:flex-row items-center sm:items-center sm:justify-center sm:w-full md:items-center md:justify-center md:w-full lg:items-start lg:justify-start lg:w-auto gap-4 md:gap-6">
+              <p className="text-black font-inter text-sm md:text-base font-bold leading-5 opacity-65">
+                Privacy Policy
+              </p>
+              <p className="text-black font-inter text-sm md:text-base font-bold leading-5 opacity-65">
+                Terms of Service
+              </p>
             </div>
           </div>
         </div>

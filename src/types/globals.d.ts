@@ -1,41 +1,5 @@
-declare module 'react' {
-  export = React;
-  export as namespace React;
-  namespace React {
-    // Basic React types
-    type ReactElement<P = any, T extends string | JSXElementConstructor<any> = string | JSXElementConstructor<any>> = {
-      type: T;
-      props: P;
-      key: string | number | null;
-    };
-
-    type ReactNode = ReactElement | string | number | boolean | null | undefined | ReactNode[];
-
-    interface FunctionComponent<P = {}> {
-      (props: P & { children?: ReactNode }): ReactElement | null;
-      displayName?: string;
-    }
-
-    // JSX
-    namespace JSX {
-      interface Element extends ReactElement<any, any> {}
-      interface IntrinsicElements {
-        [elemName: string]: any;
-      }
-    }
-
-    function createElement<P extends {}>(
-      type: string | FunctionComponent<P>,
-      props?: P & { children?: ReactNode },
-      ...children: ReactNode[]
-    ): ReactElement<P>;
-
-    const Fragment: FunctionComponent<{ children?: ReactNode }>;
-  }
-}
-
 declare module 'lucide-react' {
-  import { FunctionComponent } from 'react';
+  import React from 'react';
   
   interface IconProps {
     className?: string;
@@ -43,12 +7,22 @@ declare module 'lucide-react' {
     strokeWidth?: number;
   }
 
-  export const ArrowRight: FunctionComponent<IconProps>;
-  export const Users: FunctionComponent<IconProps>;
-  export const Camera: FunctionComponent<IconProps>;
-  export const Share2: FunctionComponent<IconProps>;
-  export const Star: FunctionComponent<IconProps>;
-  export const Play: FunctionComponent<IconProps>;
-  export const Upload: FunctionComponent<IconProps>;
-  export const Globe: FunctionComponent<IconProps>;
+  export const ArrowRight: React.ComponentType<IconProps>;
+  export const Users: React.ComponentType<IconProps>;
+  export const Camera: React.ComponentType<IconProps>;
+  export const Share2: React.ComponentType<IconProps>;
+  export const Star: React.ComponentType<IconProps>;
+  export const Play: React.ComponentType<IconProps>;
+  export const Upload: React.ComponentType<IconProps>;
+  export const Globe: React.ComponentType<IconProps>;
+  export const Menu: React.ComponentType<IconProps>;
+  export const X: React.ComponentType<IconProps>;
+  export const Scan: React.ComponentType<IconProps>;
+  export const Images: React.ComponentType<IconProps>;
+  export const Download: React.ComponentType<IconProps>;
+  export const CheckCircle: React.ComponentType<IconProps>;
+  export const QrCode: React.ComponentType<IconProps>;
+  export const Smartphone: React.ComponentType<IconProps>;
+  export const Heart: React.ComponentType<IconProps>;
+  export const Shield: React.ComponentType<IconProps>;
 } 
