@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Camera, Scan, Share2, Images, ArrowRight, Star, Users, Download, CheckCircle, QrCode, Smartphone, Heart, Shield, Menu, X } from "lucide-react";
-import { useState } from "react";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,15 +24,7 @@ export default function Home() {
                 priority
               />
             </div>
-            <div className="flex items-center justify-end">
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center space-x-8 mr-12">
-                <a href="/" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-white hover:border-blue-600 active:border-white focus:border-white">Home</a>
-                <a href="/about" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">About Us</a>
-                <a href="/features" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Features</a>
-                <a href="#pricing" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Pricing</a>
-                <a href="#blog" className="text-white hover:text-blue-600 font-medium transition-colors border-b-2 border-transparent hover:border-blue-600 active:border-white focus:border-white">Blog</a>
-              </nav>
+
 
               {/* CTA Button */}
               <div className="flex items-center space-x-3">

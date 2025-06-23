@@ -80,6 +80,56 @@ export default function FeaturesPage() {
                 Your memories are protected with enterprise-grade security. Control who can view and download your event photos.
               </p>
             </div>
+            {/* Feature 4 */}
+            <div className="group bg-gradient-to-br from-blue-50 to-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-blue-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Guest Management</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Easily manage guest access, send invitations, and control sharing permissions for your event gallery.
+              </p>
+            </div>
+            {/* Feature 5 */}
+            <div className="group bg-gradient-to-br from-purple-50 to-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-purple-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Scan className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Real-Time Updates</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Watch your event gallery grow as guests contribute their photos and videos throughout the event.
+              </p>
+            </div>
+            {/* Feature 6 */}
+            <div className="group bg-gradient-to-br from-pink-50 to-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-pink-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-pink-600 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Share2 className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Easy Sharing</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Share your entire event gallery with all guests instantly, or control access with custom permissions.
+              </p>
+            </div>
+            {/* Feature 7 */}
+            <div className="group bg-gradient-to-br from-blue-50 to-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-blue-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Camera className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Professional Integration</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Seamlessly combine professional photographer shots with guest uploads for a complete event gallery.
+              </p>
+            </div>
+            {/* Feature 8 */}
+            <div className="group bg-gradient-to-br from-purple-50 to-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-purple-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Smartphone className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mobile Optimized</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Perfect mobile experience for capturing and viewing photos, no matter what device your guests use.
+              </p>
+            </div>
           </div>
         </div>
       </section>
